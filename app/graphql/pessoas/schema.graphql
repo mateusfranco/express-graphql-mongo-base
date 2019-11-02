@@ -1,0 +1,27 @@
+type Pessoa {
+    _id: ID,
+    codigo: Float,
+    nome: String,
+    idade: Int,
+    email: String
+}
+
+input inputPessoa{
+    codigo: Float,
+    nome: String,
+    idade: Int,
+    email: String
+}
+
+type Query {
+    resposta: String,
+    saudacao(nome: String!): String,
+    findPessoaOne(codigo: Float): Pessoa,
+    findPessoa(input: inputPessoa): [Pessoa]
+}
+
+type Mutation {
+    insertPessoa(input: inputPessoa): Pessoa,
+    updatePessoa(codigo: Float, input: inputPessoa): String,
+    deletePessoa(codigo: Float): String
+}
